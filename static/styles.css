@@ -1,0 +1,87 @@
+/* Light mode styles */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .card .card-side {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: lawngreen;
+    border-radius: 9px;
+}
+
+body.dark-mode .card {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: lawngreen;
+    border-radius: 9px;
+}
+
+/* dark mode for form-text written information */
+body.dark-mode .form-text {
+    background-color: #1a1a1a;
+    color: white;   
+}
+
+body.dark-mode .btn-primary {
+    /* defaul btn-primary color below */
+    background-color: #0d6efd;
+    color: white;   
+}
+
+.hover-bg-red:hover {
+    background-color: gold;
+    /* Replace with the desired hover color */
+    border-radius: 8px;
+}
+
+.hover-bg-beige:hover {
+    background-color: beige;
+    /* Replace with the desired hover color */
+    color: white;
+    border-radius: 8px;
+}
+
+.title-color:hover {
+    color: white;
+}
+
+/* flip card */
+/* .my-card {
+
+} */
+
+.card-side {
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+}
+
+.card-side.back {
+    transform: rotateY(-180deg);
+    background-color: white;
+}
+
+.card-side.front {
+    background-color: white;
+}
+
+.card:hover .card-side.front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-side.back {
+    transform: rotateY(0deg);
+}
+
+/* vertical line */
+.vertical-line {
+    border-left: 6px solid green;
+    height: 500px;
+  }
