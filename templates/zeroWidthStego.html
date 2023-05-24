@@ -26,7 +26,7 @@
     <!-- dark off-canvas navbar -->
     <nav class="navbar navbar-primary bg-primary fixed-top">
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <!-- Home -->
                 <button class="btn btn-md btn-outline-dark">
                     <div class="d-flex align-items-center">
@@ -78,7 +78,7 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link active" aria-current="page" href="index.html">Home</a>
+                                <a class="hover-bg-red nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -122,7 +122,7 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link" href="/templates/zeroWidthStego.html">Zero-Width
+                                <a class="hover-bg-red nav-link" href="/zeroWidthStego">Zero-Width
                                     Characters Based Steganography</a>
                             </li>
                             <li>
@@ -150,42 +150,56 @@
     <br /><br /><br />
     <!-- body of the form -->
     <!-- hide, reveal headings -->
-    <div class="container">
-        <div class="row">
-            <div class="col mt-4 text-center">
+    <div class="container" style="margin-top: 1rem;">
+        <div class="row text-center">
+            <div class="col mt-4">
                 <h2>Hide It</h2>
             </div>
             <div class="col-2"></div>
-            <div class="col mt-4 text-center">
+            <div class="col mt-4">
                 <h2>Reveal It</h2>
-            </div>   
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 3rem;">
             <div class="col mt-3">
                 <div class="mt-2">
-                    <form method="post">
+                    <form action="" method="post" id="my-form">
                         <div>
-
-                            <!-- input old project used attributes
-                                autocomplete="off" name="" placeholder="" spellcheck="false"  -->
-
-                            <label for="inputPublicMsg" class="form-label"><strong>Public Message</strong></label>
-                            <input type="text" name="inputPublicMsg" placeholder="" id="inputPublicMsg"
-                                class="form-control" style="width: 90%;" spellcheck="false" autocomplete="off">
+                            <label for="inputPublicMsg" class="form-label"><strong>Public
+                                    Message</strong></label>
+                            <div class="form-floating">
+                                <!-- to know which form is submitted in app.py -->
+                                <input type="hidden" name="form_type" value="left_form">
+                                <input type="text" name="inputPublicMsg" placeholder="Enter public message"
+                                    id="inputPublicMsg" class="form-control" spellcheck="false" autocomplete="off">
+                                <label for="inputPublicMsg" class="form-label">Enter Public Message</label>
+                            </div>
                         </div>
                         <div class="form-text">
                             <p>Secret message will be hidden in the public message entered here.</p>
                         </div>
                         <div class="mt-4">
-                            <label for="inputSecretMsg" class="form-label"><strong>Secret Message</strong></label>
-                            <input type="text" name="inputSecretMsg" placeholder="" id="inputSecretMsg"
-                                class="form-control" style="width: 90%;" spellcheck="false" autocomplete="off">
+                            <label for="inputSecretMsg" class="form-label"><strong>Secret
+                                    Message</strong></label>
+                            <div class="form-floating">
+                                <input type="text" name="inputSecretMsg" placeholder="Enter secret message"
+                                    id="inputSecretMsg" class="form-control" spellcheck="false" autocomplete="off">
+                                <label for="inputSecretMsg" class="form-label">Enter Secret Message</label>
+                            </div>
                         </div>
                         <div class="form-text">
                             <p>Secret message to hide in the public message.</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                            <!-- Encryption Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#encryptionModal">
+                                Show Output
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -196,13 +210,31 @@
 
             <div class="col mt-3">
                 <div class="mt-2">
-                    <form method="post">
+                    <form action="" method="post" id="my-form1">
                         <div>
-                            <label for="inputPublicMsg1" class="form-label"><strong>Public Message</strong></label>
-                            <input type="text" name="inputPublicMsg1" placeholder="" id="inputPublicMsg1"
-                                class="form-control" style="width: 90%;" spellcheck="false" autocomplete="off">
+                            <label for="inputPublicMsg1" class="form-label"><strong>Public
+                                    Message</strong></label>
+                            <div class="form-floating">
+                                <!-- to know which form is submitted in app.py -->
+                                <input type="hidden" name="form_type" value="right_form">
+                                <input type="hidden" id="toast_message" name="toast_message"
+                                    value="{{ toast_message }}">
+                                <input type="text" name="inputPublicMsg1" placeholder="Enter public message"
+                                    id="inputPublicMsg1" class="form-control" spellcheck="false" autocomplete="off">
+                                <label for="inputPublicMsg1" class="form-label">Enter Public Message</label>
+                            </div>
                             <div class="form-text">
-                                <p>Enter public message in which secret message is hidden.</p>
+                                <p>Enter public message which has secret message hidden in it.</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <!-- Decryption Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#decryptionModal">
+                                    Show Output
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -211,85 +243,65 @@
         </div>
     </div>
 
-    <!-- Submit Buttons -->
-    <div class="container">
-        <div class="row text-center">
-            <div class="col mt-1">
-                <button class="btn btn-primary">
-                    Get Output
-                </button>
-            </div>
-            <!-- for gap between -->
-            <div class="col-2 mt-1"></div>
-            <div class="col mt-1">
-                <button class="btn btn-primary">
-                    Get Output
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- <div class="container"> -->
+        
+    <!-- </div> -->
 
     <br>
-    <!-- hr for horizontal line break -->
-    <div class="d-flex justify-content-center">
-        <hr class="list-divider" style="width: 90%;" />
-    </div>
 
-    <!-- Output Headings -->
-    <div class="container">
-        <div class="row">
-            <div class="col mt-2 text-center">
-                <h2>Output</h2>
-            </div>
-            <div class="col-2"></div>
-            <div class="col mt-2 text-center">
-                <h2>Output</h2>
-            </div>   
-        </div>
-    </div>
 
-    <!-- Output Fields -->
-    <div class="container">
-        <div class="row">
-            <div class="col mt-3">
-                <label for="output" class="form-label"><strong>Output</strong></label>
-                <input type="text" name="output" placeholder="" id="output" class="form-control" style="width: 90%;"
-                    spellcheck="false" autocomplete="off">
-                <div class="form-text">
-                    <p>This is your public message in which your secret message was hidden. Yay!</p>
+
+
+    <!-- Encryption Modal -->
+    <div class="modal fade" id="encryptionModal" tabindex="-1" aria-labelledby="encryptionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="encryptionModalLabel">Output</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <!-- for gap between -->
-            <div class="col-2"></div>
-            <div class="col mt-3">
-                <label for="output1" class="form-label"><strong>Output</strong></label>
-                <input type="text" name="output1" placeholder="" id="output1" class="form-control" style="width: 90%;"
-                    spellcheck="false" autocomplete="off">
-                <div class="form-text">
-                    <p>Revealed the secret message hidden in the public message. Yay!</p>
+                <div class="modal-body">
+                    <!-- output for encryption -->
+                    <div class="form-floating">
+                        <textarea class="form-control" name="output" id="output" placeholder="Your output"
+                            spellcheck="false" autocomplete="off">{{ hidden_public_message }}</textarea>
+                        <label for="output">Your Output</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="copier()">Copy</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Copy Buttons -->
-    <div class="container">
-        <div class="row text-center">
-            <div class="col mt-1">
-                <button class="btn btn-primary">
-                    Copy Output
-                </button>
-            </div>
-            <!-- for gap between -->
-            <div class="col-2 mt-1"></div>
-            <div class="col mt-1">
-                <button class="btn btn-primary">
-                    Copy Output
-                </button>
+
+    <!-- Decryption Modal -->
+    <div class="modal fade" id="decryptionModal" tabindex="-1" aria-labelledby="decryptionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="decryptionModalLabel">Output</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- output for decryption -->
+                    <div class="form-floating">
+                        <textarea class="form-control" name="output" id="output1" placeholder="Your output"
+                            spellcheck="false" autocomplete="off">{{ unwrapped }}</textarea>
+                        <label for="output">Your Output</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="copier1()">Copy</button>
+                </div>
             </div>
         </div>
     </div>
-
 
 </body>
 

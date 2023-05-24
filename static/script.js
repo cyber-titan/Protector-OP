@@ -10,3 +10,18 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark-mode');
     });
 });
+
+// copy buttons
+// copier for output i.e., Encryption
+function copier() {
+    const a = document.getElementById("output");
+    a.select();
+    navigator.clipboard.writeText(a.value);
+}
+
+// copier for output i.e., Encryption
+function copier1() {
+    const a = document.getElementById("output1");
+    a.select();
+    navigator.clipboard.writeText(a.value);
+}

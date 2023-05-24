@@ -30,12 +30,6 @@ body.dark-mode .form-text {
     color: white;   
 }
 
-body.dark-mode .btn-primary {
-    /* defaul btn-primary color below */
-    background-color: #0d6efd;
-    color: white;   
-}
-
 .hover-bg-red:hover {
     background-color: gold;
     /* Replace with the desired hover color */
@@ -54,9 +48,6 @@ body.dark-mode .btn-primary {
 }
 
 /* flip card */
-/* .my-card {
-
-} */
 
 .card-side {
     backface-visibility: hidden;
@@ -79,9 +70,3 @@ body.dark-mode .btn-primary {
 .card:hover .card-side.back {
     transform: rotateY(0deg);
 }
-
-/* vertical line */
-.vertical-line {
-    border-left: 6px solid green;
-    height: 500px;
-  }
