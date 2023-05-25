@@ -281,14 +281,265 @@ def pass_strength():
         return render_template('pass-strength.html', result=result, strength_value=strength_value, strength_percentage=strength_percentage, progress_bar_color=progress_bar_color)
 
 # ****************** Feature 1 ******************
-@app.route('/crypto-algos', methods=['GET', 'POST'])
-def crypto_algos():
+@app.route('/ceasar-cipher', methods=['GET', 'POST'])
+def ceasar_algo():
     if request.method == 'GET':
-        return render_template('crypto-algos.html')
+        return render_template('ceasar-cipher.html')
     
-    # if request.method == 'POST':
-        # return render_template('crypto-algos.html')
+    if request.method == 'POST':
+        encryption_radio = request.form.get("encryptionRadio")
+        decryption_radio = request.form.get("decryptionRadio")
+        
+        if encryption_radio:
+            # encryption code
+            plaintext = str(request.form.get("plaintext"))
+            shift_value = int(str(request.form.get("shiftValue")))
+
+            ciphertext = ""
+            for i in range(len(plaintext)):
+                char = plaintext[i]
+    
+                if (char == ' '):
+                    ciphertext += ' '
+                    continue
+
+                # Encrypt uppercase characters
+                if (char.isupper()):
+                    ciphertext += chr((ord(char) + shift_value - 65) % 26 + 65)
+    
+                # Encrypt lowercase characters
+                else:
+                    ciphertext += chr((ord(char) + shift_value - 97) % 26 + 97)
+
+            return render_template('ceasar-cipher.html', ciphertext=ciphertext)
+
+        else:
+            # decryption code
+            ciphertext = str(request.form.get("plaintext"))
+            shift_value = int(str(request.form.get("shiftValue")))
+            plaintext = ""
+            for i in range(len(ciphertext)):
+                char = ciphertext[i]
+                if (char == ' '):
+                    plaintext += ' '
+                    continue
+
+                # Encrypt uppercase characters
+                if (char.isupper()):
+                    plaintext += chr((ord(char) - shift_value - 65) % 26 + 65)
+    
+                # Encrypt lowercase characters
+                else:
+                    plaintext += chr((ord(char) - shift_value - 97) % 26 + 97)
+
+            return render_template('ceasar-cipher.html', ciphertext=plaintext)
+
+@app.route('/rot13', methods=['GET', 'POST'])
+def rot13_algo():
+    if request.method == 'GET':
+        return render_template('rot13.html')
+    
+    if request.method == 'POST':
+        encryption_radio = request.form.get("encryptionRadio")
+        decryption_radio = request.form.get("decryptionRadio")
+        
+        if encryption_radio:
+            # encryption code
+            plaintext = str(request.form.get("plaintext"))
+            shift_value = 13
+            ciphertext = ""
+            for i in range(len(plaintext)):
+                char = plaintext[i]
+    
+                if (char == ' '):
+                    ciphertext += ' '
+                    continue
+
+                # Encrypt uppercase characters
+                if (char.isupper()):
+                    ciphertext += chr((ord(char) + shift_value - 65) % 26 + 65)
+    
+                # Encrypt lowercase characters
+                else:
+                    ciphertext += chr((ord(char) + shift_value - 97) % 26 + 97)
+
+            return render_template('rot13.html', ciphertext=ciphertext)
+
+        else:
+            # decryption code
+            ciphertext = str(request.form.get("plaintext"))
+            shift_value = 13
+            plaintext = ""
+            for i in range(len(ciphertext)):
+                char = ciphertext[i]
+                if (char == ' '):
+                    plaintext += ' '
+                    continue
+
+                # Encrypt uppercase characters
+                if (char.isupper()):
+                    plaintext += chr((ord(char) - shift_value - 65) % 26 + 65)
+    
+                # Encrypt lowercase characters
+                else:
+                    plaintext += chr((ord(char) - shift_value - 97) % 26 + 97)
 
 
+            return render_template('rot13.html', ciphertext=plaintext)
+
+
+import base64
+def base64Encrypt(sample_string):
+    sample_string_bytes = sample_string.encode("ascii", errors='ignore')
+    base64_bytes = base64.b64encode(sample_string_bytes)
+    base64_string = base64_bytes.decode("ascii", errors='ignore')
+    return base64_string
+
+def base64Decrypt(base64_string):
+    base64_bytes = base64_string.encode("ascii", errors='ignore')
+    sample_string_bytes = base64.b64decode(base64_bytes)
+    sample_string = sample_string_bytes.decode("ascii", errors='ignore')
+    return sample_string
+
+@app.route('/base64', methods=['GET', 'POST'])
+def base64_algo():
+    if request.method == 'GET':
+        return render_template('base64.html')
+    
+    if request.method == 'POST':
+        encryption_radio = request.form.get("encryptionRadio")
+        decryption_radio = request.form.get("decryptionRadio")
+        
+        if encryption_radio:
+            # encryption code
+            plaintext = str(request.form.get("plaintext"))
+            ciphertext = ""
+            ciphertext = base64Encrypt(plaintext)
+
+            return render_template('base64.html', ciphertext=ciphertext)
+
+        else:
+            # decryption code
+            ciphertext = str(request.form.get("plaintext"))
+            plaintext = ""
+            plaintext = base64Decrypt(ciphertext)
+
+            return render_template('base64.html', ciphertext=plaintext)
+        
+
+def reverseEncrypt(message, dict):
+    rev_message = message[::-1]
+    for i in dict:
+        rev_message = rev_message.replace(i, dict[i])
+    return rev_message + "aca"
+
+def reverseDecrypt(encMessage, dict):
+    rev_message = encMessage[::-1]
+    rev_message = rev_message[3:]
+    for i in dict:
+        rev_message = rev_message.replace(i, dict[i])
+    return rev_message
+        
+@app.route('/reverse-cipher', methods=['GET', 'POST'])
+def reverse_algo():
+    if request.method == 'GET':
+        return render_template('reverse-cipher.html')
+    
+    if request.method == 'POST':
+        encryption_radio = request.form.get("encryptionRadio")
+        decryption_radio = request.form.get("decryptionRadio")
+        
+        if encryption_radio:
+            # encryption code
+            plaintext = str(request.form.get("plaintext"))
+            ciphertext = ""
+            encDict = {"a" : "0", "e" : "1",
+            "i" : "2", "o" : "3", 
+            "u" : "4"} 
+            ciphertext = reverseEncrypt(plaintext, encDict)
+
+            return render_template('reverse-cipher.html', ciphertext=ciphertext)
+
+        else:
+            # decryption code
+            ciphertext = str(request.form.get("plaintext"))
+            plaintext = ""
+            decDict = {"0" : "a", "1" : "e",
+            "2" : "i", "3" : "o", 
+            "4" : "u"}
+            plaintext = reverseDecrypt(ciphertext, decDict)
+
+            return render_template('reverse-cipher.html', ciphertext=plaintext)
+
+
+def cipherText(plain, k):
+    if(len(plain) != len(k)):
+        k1 = k
+        j = 0
+        while(len(plain) != len(k1)):
+            if(j == (len(k))):
+                j = 0
+                continue
+            k1 += k[j]
+            j += 1
+        # k1 is same length key
+    else:
+        k1 = k
+    cipher = ""
+    for i in range(len(plain)):
+        t = ord(plain[i]) - 97 + ord(k1[i]) - 97
+        if (t >= 26):
+            t -= 26
+        cipher += chr(t + 97)
+    return cipher
+
+def originalText(cipher, k):
+    if(len(cipher) != len(k)):
+        k1 = k
+        j = 0
+        while(len(cipher) != len(k1)):
+            if(j == (len(k))):
+                j = 0
+                continue
+            k1 += k[j]
+            j += 1
+        # k1 is same length key
+    else:
+        k1 = k
+    plain = ""
+    for i in range(len(cipher)):
+        t = (ord(cipher[i]) - 97) - (ord(k1[i]) - 97)
+        if (t < 0):
+            t += 26
+        plain += chr(t + 97)
+    return plain
+
+@app.route('/one-time-pad', methods=['GET', 'POST'])
+def one_time_pad_algo():
+    if request.method == 'GET':
+        return render_template('one-time-pad.html')
+    
+    if request.method == 'POST':
+        encryption_radio = request.form.get("encryptionRadio")
+        decryption_radio = request.form.get("decryptionRadio")
+        
+        if encryption_radio:
+            # encryption code
+            plaintext = str(request.form.get("plaintext"))
+            key = str(request.form.get("key"))
+            ciphertext = ""
+            ciphertext = cipherText(plaintext, key)
+
+            return render_template('one-time-pad.html', ciphertext=ciphertext)
+
+        else:
+            # decryption code
+            ciphertext = str(request.form.get("plaintext"))
+            key = str(request.form.get("key"))
+            plaintext = ""
+            plaintext = originalText(ciphertext, key)
+
+            return render_template('one-time-pad.html', ciphertext=plaintext)
+        
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

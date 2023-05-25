@@ -84,39 +84,8 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Cryptographic Algorithms
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="hover-bg-red dropdown-item" href="#">Ceasar Cipher</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a class="hover-bg-red dropdown-item" href="#">ROT13</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a class="hover-bg-red dropdown-item" href="#">Base64</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a class="hover-bg-red dropdown-item" href="#">Reverse Cipher</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a class="hover-bg-red dropdown-item" href="#">One Time Pad Cipher</a>
-                                    </li>
-                                </ul>
+                                <a class="hover-bg-red nav-link active" aria-current="page"
+                                    href="/ceasar-cipher">Cryptographic Algorithms</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -135,7 +104,7 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link" href="#">Password Strength Tester</a>
+                                <a class="hover-bg-red nav-link" href="/pass-strength">Password Strength Tester</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -148,41 +117,76 @@
     </nav>
 
     <br /><br /><br />
+
     <!-- body of the form -->
     <!-- hide, reveal headings -->
-    <div class="container" style="margin-top: 9rem;">
+    <div class="container" style="margin-top: 7rem;">
         <div class="row text-center">
             <div class="col mt-4">
-                <h2>Text Cryptographic Algorithms</h2>
+                <h2>ROT13 Cipher</h2>
             </div>
         </div>
 
         <div class="row" style="margin-top: 0rem;">
             <div class="col"></div>
             <div class="col-5 mt-3 card p-4">
-                <div class="mt-2">
+                <div>
+                    <!-- navbar for algorithms -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/ceasar-cipher">Ceasar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/rot13">ROT13</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/base64">Base64</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/reverse-ciphe">Reverse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/one-time-pad">One Time Pad</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-3">
                     <form action="" method="post" id="my-form">
                         <div>
-                            <label for="inputLengthOfPass" class="form-label"><strong>Password Length</strong></label>
+                            <label for="plaintext" class="form-label"><strong>Text</strong></label>
                             <div class="form-floating">
-                                <input type="number" min="12" max="1200" name="inputLengthOfPass"
-                                    placeholder="Enter length of the pass" id="inputLengthOfPass" class="form-control"
-                                    spellcheck="false" autocomplete="off" required>
-                                <label for="inputLengthOfPass" class="form-label">Enter Length</label>
+                                <input type="text" name="plaintext" placeholder="Enter text"
+                                    id="plaintext" class="form-control" spellcheck="false" autocomplete="off" required>
+                                <label for="plaintext" class="form-label">Enter text</label>
                             </div>
                         </div>
                         <div class="form-text">
-                            <p>Password generated will have length from 12 to 1200.</p>
+                            <p>It should be only lowercase and uppercase letters, spaces.</p>
                         </div>
 
-                        <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="encryptionRadio" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Encryption</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="decryptionRadio" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Decryption</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
                             <button type="submit" class="btn btn-primary">
-                                Generate
+                                Submit
                             </button>
+
                             <!-- Output Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#strongPass">
-                                Show Password
+                                data-bs-target="#ceasarModal">
+                                Show Output
                             </button>
                         </div>
                     </form>
@@ -193,19 +197,19 @@
     </div>
 
     <!-- Strong Password Output Modal -->
-    <div class="modal fade" id="strongPass" tabindex="-1" aria-labelledby="strongPassLabel" aria-hidden="true">
+    <div class="modal fade" id="ceasarModal" tabindex="-1" aria-labelledby="ceasarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="strongPassLabel">Output</h1>
+                    <h1 class="modal-title fs-5" id="ceasarModalLabel">Output</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- output for encryption -->
                     <div class="form-floating">
                         <textarea class="form-control" name="output" id="output" placeholder="Your output"
-                            spellcheck="false" autocomplete="off">{{ strong_password }}</textarea>
-                        <label for="output">Your Strong Password</label>
+                            spellcheck="false" autocomplete="off">{{ ciphertext }}</textarea>
+                        <label for="output">Your Encrypted Text</label>
                     </div>
                 </div>
                 <div class="modal-footer">
