@@ -165,9 +165,8 @@
                         <div>
                             <label for="inputPass" class="form-label"><strong>Password</strong></label>
                             <div class="form-floating">
-                                <input type="text" name="inputPass"
-                                    placeholder="Enter length of the pass" id="inputPass" class="form-control"
-                                    spellcheck="false" autocomplete="off" required>
+                                <input type="text" name="inputPass" placeholder="Enter length of the pass"
+                                    id="inputPass" class="form-control" spellcheck="false" autocomplete="off" required>
                                 <label for="inputPass" class="form-label">Enter Password</label>
                             </div>
                         </div>
@@ -193,6 +192,7 @@
     </div>
 
     <!-- Password Strength Output Modal -->
+
     <div class="modal fade" id="passModel" tabindex="-1" aria-labelledby="passModelLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -201,12 +201,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- output for encryption -->
+                    <!-- output for password strength -->
                     <div class="form-floating">
-                        <!-- <textarea class="form-control" name="output" id="output" placeholder="Your output"
-                            spellcheck="false" autocomplete="off">{{ result }}</textarea> -->
-                        <!-- <label for="output">Your Strong Password</label> -->
                         <p>Your Password's Strength is: {{ result }}</p>
+                        <div class="progress">
+                            <div class="progress-bar {{ progress_bar_color }}" role="progressbar"
+                                aria-label="Password strength progress bar" style="width: {{ strength_value }}%;"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ strength_percentage }}</div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

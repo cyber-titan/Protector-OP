@@ -251,19 +251,44 @@ def pass_strength():
         if sc: score += 1
 
         # output
-        result = ""
-        if score == 0: result = "Very Weak 😱"
-        if score == 1 or score == 2: result = "Weak 😬"
-        if score == 3: result = "Moderate 😐"
-        if score == 4: result = "Strong 🙂"
-        if score == 5: result = "Very Strong 😎"
+        result, strength_value, strength_percentage, progress_bar_color = "", 0, "", "bg-"
+        if score == 0: 
+            result = "Very Weak 😱"
+            strength_value = 20
+            progress_bar_color += "danger"
+            strength_percentage = str(strength_value) + '%'
+        if score == 1 or score == 2: 
+            result = "Weak 😬"
+            strength_value = 40
+            progress_bar_color += "warning"
+            strength_percentage = str(strength_value) + '%'
+        if score == 3: 
+            result = "Moderate 😐"
+            strength_value = 60
+            progress_bar_color += "info"
+            strength_percentage = str(strength_value) + '%'
+        if score == 4: 
+            result = "Strong 🙂"
+            strength_value = 80
+            progress_bar_color += "primary"
+            strength_percentage = str(strength_value) + '%'
+        if score == 5: 
+            result = "Very Strong 😎"
+            strength_value = 100
+            progress_bar_color += "success"         
+            strength_percentage = str(strength_value) + '%'   
 
-
-        return render_template('pass-strength.html', result=result)
+        return render_template('pass-strength.html', result=result, strength_value=strength_value, strength_percentage=strength_percentage, progress_bar_color=progress_bar_color)
 
 # ****************** Feature 1 ******************
-@app.route('/', methods=['GET', 'POST'])
-def 
+@app.route('/crypto-algos', methods=['GET', 'POST'])
+def crypto_algos():
+    if request.method == 'GET':
+        return render_template('crypto-algos.html')
+    
+    # if request.method == 'POST':
+        # return render_template('crypto-algos.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

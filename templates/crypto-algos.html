@@ -84,7 +84,7 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/crypto-algos" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle" href="/#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Cryptographic Algorithms
                                 </a>
@@ -122,7 +122,8 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link" href="/zero-width-stego">Zero-Width Characters Based Steganography</a>
+                                <a class="hover-bg-red nav-link" href="/zero-width-stego">Zero-Width
+                                    Characters Based Steganography</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -134,7 +135,7 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link" href="/pass-strength">Password Strength Tester</a>
+                                <a class="hover-bg-red nav-link" href="#">Password Strength Tester</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -146,99 +147,75 @@
         </div>
     </nav>
 
-    <br /><br /><br /><br /><br />
+    <br /><br /><br />
+    <!-- body of the form -->
+    <!-- hide, reveal headings -->
+    <div class="container" style="margin-top: 9rem;">
+        <div class="row text-center">
+            <div class="col mt-4">
+                <h2>Text Cryptographic Algorithms</h2>
+            </div>
+        </div>
 
-    <!-- masonry -->
-    <div class="container">
-        <div class="row" data-masonry='{"percentPosition": true }'>
-            <div class="col-4 mt-3">
-                <div class="card mt-2 dark-mode text-center">
-                    <div class="card-side front mt-3">
+        <div class="row" style="margin-top: 0rem;">
+            <div class="col"></div>
+            <div class="col-5 mt-3 card p-4">
+                <div class="mt-2">
+                    <form action="" method="post" id="my-form">
                         <div>
-                            <p>Cryptographic Algorithms To Secure Your Text Data.</p>
+                            <label for="inputLengthOfPass" class="form-label"><strong>Password Length</strong></label>
+                            <div class="form-floating">
+                                <input type="number" min="12" max="1200" name="inputLengthOfPass"
+                                    placeholder="Enter length of the pass" id="inputLengthOfPass" class="form-control"
+                                    spellcheck="false" autocomplete="off" required>
+                                <label for="inputLengthOfPass" class="form-label">Enter Length</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-side back mb-3 text-center">
-                        <div>
-                            <a href="/crypto-algos" class="btn btn-primary">
-                                Encrypt/Decrypt Text
-                            </a>
+                        <div class="form-text">
+                            <p>Password generated will have length from 12 to 1200.</p>
                         </div>
-                    </div>
-                </div>
-                <br><br><br><br><br><br><br><br><br><br>
-                <div class="card mt-5 dark-mode">
-                    <div class="card-side front mt-3 text-center">
-                        <div>
-                            <p>Generate Strong Passwords For Your Accounts.</p>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                Generate
+                            </button>
+                            <!-- Output Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#strongPass">
+                                Show Password
+                            </button>
                         </div>
-                    </div>
-                    <div class="card-side back mb-3 text-center">
-                        <div>
-                            <a href="/strong-pass" class="btn btn-primary">
-                                Generate Now
-                            </a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            
-            <!-- image and features -->
-            <div class="col-4">
-                <div class="card mt-2 dark-mode">
-                    <div class="card-side front text-center">
-                        <div>
-                            <img src="/static/favicons/favicon-original.jpg" class="card-img-top" />
-                            <strong>Protector OP — For The Win</strong>
-                        </div>
-                    </div>
-                    <div class="card-side back">
-                        <div>
-                            <ul>
-                                <li>Text Cryptographic Algorithms</li>
-                                <li>Zero-Width Characters Based Steganography</li>
-                                <li>Generate Strong Passwords</li>
-                                <li>Test Strength Of Your Passwords</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-4 mt-3">
-                <div class="card mt-2 dark-mode">
-                    <div class="card-side front mt-3 text-center">
-                        <div>
-                            <p>Hide Secret Text Messages In Ordinary Looking Text Messages. Stealthy As A Ninja. </p>
-                        </div>
-                    </div>
-                    <div class="card-side back mb-3 text-center">
-                        <div>
-                            <a href="/zero-width-stego" class="btn btn-primary">
-                                Hide/Reveal Messages
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <br><br><br><br><br><br><br><br><br>
-                <div class="card mt-5 dark-mode">
-                    <div class="card-side front mt-3 text-center">
-                        <div>
-                            <p>Check How Tough Your Passwords Really Are? See For Yourself.</p>
-                        </div>
-                    </div>
-                    <div class="card-side back mb-3 text-center">
-                        <div>
-                            <a href="/pass-strength" class="btn btn-primary">
-                                Check Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <div class="col"></div>
         </div>
     </div>
+
+    <!-- Strong Password Output Modal -->
+    <div class="modal fade" id="strongPass" tabindex="-1" aria-labelledby="strongPassLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="strongPassLabel">Output</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- output for encryption -->
+                    <div class="form-floating">
+                        <textarea class="form-control" name="output" id="output" placeholder="Your output"
+                            spellcheck="false" autocomplete="off">{{ strong_password }}</textarea>
+                        <label for="output">Your Strong Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="copier()">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
