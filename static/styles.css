@@ -31,7 +31,7 @@ body.dark-mode .form-text {
 }
 
 .hover-bg-red:hover {
-    background-color: gold;
+    background-color: #0d6efd;
     /* Replace with the desired hover color */
     border-radius: 8px;
 }
