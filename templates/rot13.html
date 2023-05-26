@@ -85,7 +85,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="hover-bg-red nav-link active" aria-current="page"
-                                    href="/ceasar-cipher">Cryptographic Algorithms</a>
+                                    href="/caesar-cipher">Cryptographic Algorithms</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -105,6 +105,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="hover-bg-red nav-link" href="/pass-strength">Password Strength Tester</a>
+                            </li>
+                            <li>
+                                <hr class="list-divider" />
+                            </li>
+                            <li class="nav-item">
+                                <a class="hover-bg-red nav-link" href="/tips">Tips</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -134,7 +140,7 @@
                     <!-- navbar for algorithms -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/ceasar-cipher">Ceasar</a>
+                            <a class="nav-link" aria-current="page" href="/caesar-cipher">Caesar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/rot13">ROT13</a>
@@ -156,8 +162,8 @@
                         <div>
                             <label for="plaintext" class="form-label"><strong>Text</strong></label>
                             <div class="form-floating">
-                                <input type="text" name="plaintext" placeholder="Enter text"
-                                    id="plaintext" class="form-control" spellcheck="false" autocomplete="off" required>
+                                <input type="text" name="plaintext" placeholder="Enter text" id="plaintext"
+                                    class="form-control" spellcheck="false" autocomplete="off" required>
                                 <label for="plaintext" class="form-label">Enter text</label>
                             </div>
                         </div>
@@ -185,9 +191,11 @@
 
                             <!-- Output Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#ceasarModal">
+                                data-bs-target="#rot13Modal">
                                 Show Output
                             </button>
+
+                            <a class="btn btn-primary" href="/tips">See Tips</a>
                         </div>
                     </form>
                 </div>
@@ -197,11 +205,11 @@
     </div>
 
     <!-- Strong Password Output Modal -->
-    <div class="modal fade" id="ceasarModal" tabindex="-1" aria-labelledby="ceasarModalLabel" aria-hidden="true">
+    <div class="modal fade" id="rot13Modal" tabindex="-1" aria-labelledby="rot13ModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ceasarModalLabel">Output</h1>
+                    <h1 class="modal-title fs-5" id="rot13ModalLabel">Output</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
