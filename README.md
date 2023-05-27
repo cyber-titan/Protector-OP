@@ -1,12 +1,12 @@
-# mini2_playground
-
-Tech Stack: HTML, CSS, JavaScript, Bootstrap and Flask.
+# Protector OP — For The Win
 
 It is a website which has features which help you to:
-1. Encrypt (or) decrypt text data using cryptographic algorithms
-2. Hide (or) reveal secret messages in ordinary looking public messages
-3. Generate strong passwords from a length of 12 to 1200
-4. Test the strength of user's password
+1. Encrypt (or) decrypt text data using cryptographic algorithms.
+2. Hide (or) reveal secret messages in ordinary looking public messages.
+3. Generate strong passwords from a length of 12 to 1200.
+4. Test the strength of user's password.
+
+Tech Stack: HTML, CSS, JavaScript, Bootstrap and Flask (Python).
 
 Features available in the website:
 1. Text Cryptographic Algorithms
