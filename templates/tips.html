@@ -20,6 +20,23 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
         integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
         async></script>
+
+    <style>
+        /* tips.html on hover */
+        .card:hover {
+            background-color: #0d6efd;
+            /* Change to your desired hover color */
+            color: white;
+            /* Change to your desired text color on hover */
+        }
+
+        .card:hover .card-body .card-text a {
+            background-color: #0d6efd;
+            /* Change to your desired hover color */
+            color: white;
+            /* Change to your desired text color on hover */
+        }
+    </style>
 </head>
 
 <body>
@@ -98,13 +115,19 @@
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
-                                <a class="hover-bg-red nav-link" href="/strong-pass">Strong Password Generator</a>
+                                <a class="hover-bg-red nav-link" href="/strong-pass">Strong Random Password Generator</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
                             </li>
                             <li class="nav-item">
                                 <a class="hover-bg-red nav-link" href="/pass-strength">Password Strength Tester</a>
+                            </li>
+                            <li>
+                                <hr class="list-divider" />
+                            </li>
+                            <li class="nav-item">
+                                <a class="hover-bg-red nav-link" href="/tips">Tips</a>
                             </li>
                             <li>
                                 <hr class="list-divider" />
@@ -116,24 +139,250 @@
         </div>
     </nav>
 
-    <br /><br /><br />
+    <br /><br /><br /><br />
 
     <!-- masonry -->
     <div class="container">
-        <!-- <div class="row" data-masonry='{"percentPosition": true }'> -->
-        <!-- card ==> body, images (maybe), header & footer, quote, text alignment, image overlays, horizontal (maybe), 
-            Background and color , Border -->
         <div class="row">
-            <div class="col">
-                <h1>hi</h1>
+            <div class="row" style="margin-top: 3rem; margin-bottom: 3rem;">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <h2>Tips To Keep The Hackers At Bay</h2>
+                </div>
             </div>
-            <div class="col">
+        </div>
+
+        <div class="container" style="margin-bottom: 4rem;">
+            <!-- <div class="container"> -->
+            <!-- card ==> body, header & footer, Background and color , Border , quote, text alignment,
+                    images (maybe), image overlays, horizontal (maybe) -->
+            <div class="row" data-masonry='{"percentPosition": true }'>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip1</h6>
+                            <p class="card-text">Enable two-factor authentication (2FA). This adds an
+                                extra layer of security. It can be like a text
+                                message code (OTP) or biometric authentication.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip4</h6>
+                            <p class="card-text">Regularly review your account activity and monitor for any
+                                unauthorized access or suspicious behavior. It can be done by analysing activity logs
+                                or notifications that can alert you to potential security breaches.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptographic Algorithms</h5>
+                            <h6 class="card-subtitle mb-2">#Tip1</h6>
+                            <p class="card-text">Familiarize yourself with commonly used cryptographic algorithms.
+                                Understand their strengths and weaknesses to know which algorithms to use for password
+                                security.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptographic Algorithms</h5>
+                            <h6 class="card-subtitle mb-2">#Tip4</h6>
+                            <p class="card-text">Advantages of using cryptographic algorithms include
+                                confidentiality, integrity, availability and authorized access.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Zero-Width Characters Steganography</h5>
+                            <h6 class="card-subtitle mb-2">#Tip2</h6>
+                            <p class="card-text">Be cautious when using zero-width characters for steganography, as
+                                not all applications may handle them correctly. Test the compatibility and
+                                readability of the steganographic text across different applications.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip3</h6>
+                            <p class="card-text">Regularly monitor for security breaches. Use services like <a
+                                    href="https://haveibeenpwned.com/">Have I
+                                    Been Pwned</a> to check if your email address has been
+                                compromised in any known data breaches.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip6</h6>
+                            <p class="card-text">Use a random password generator that employs strong algorithms to
+                                generate unpredictable strong passwords.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip9</h6>
+                            <p class="card-text">Consider using password mnemonics, which are sentences or phrases
+                                where each word's initial letter represents a character in your password. For example,
+                                "I have 2 dogs named Max and Bella" can become "Ih2dnMaB!".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip2</h6>
+                            <p class="card-text">Keep backup options for 2FA in case you lose access to your primary
+                                authentication device. It can include using backup codes or recovery keys.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip5</h6>
+                            <p class="card-text">Enable account recovery options such as secondary email addresses
+                                or phone numbers, to regain access to your account in case of password loss or
+                                compromise of account.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptographic Algorithms</h5>
+                            <h6 class="card-subtitle mb-2">#Tip2</h6>
+                            <p class="card-text">Use strong cryptographic algorithms when transmitting sensitive data
+                                over
+                                insecure networks or storing it in databases.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptographic Algorithms</h5>
+                            <h6 class="card-subtitle mb-2">#Tip5</h6>
+                            <p class="card-text">Not using cryptographic algorithms results in increased
+                                risk of data tampering, lack of trust in unencrypted data and data vulnerability.</p>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip1</h6>
+                            <p class="card-text">Use the following rules to create strong passwords
+                            <ul>
+                                <li>Password must have at least 12 characters.</li>
+                                <li>Password must have at least one lowercase character.</li>
+                                <li>Password must have at least one uppercase character.</li>
+                                <li>Password must have at least one digit.</li>
+                                <li>Password must have at least one number.</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip4</h6>
+                            <p class="card-text">Regularly update your passwords to maintain their security. Set a
+                                reminder to change passwords every few months or whenever there is a security breach.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip7</h6>
+                            <p class="card-text">Avoid using easily guessable information such as your name,
+                                birthdate, or common words as passwords. Instead, use a combination of uppercase and
+                                lowercase letters, numbers, and symbols.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip10</h6>
+                            <p class="card-text">Avoid using dictionary words, names in your passwords. Instead
+                                consider using passphrases that combine multiple words and are easy for you to remember
+                                but difficult for others to guess.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip3</h6>
+                            <p class="card-text">Keep your devices and software up to date. Install the latest
+                                security patches and updates to protect against known vulnerabilities.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">General</h5>
+                            <h6 class="card-subtitle mb-2">#Tip6</h6>
+                            <p class="card-text">Educate yourself about common social engineering tactics, such as
+                                phishing emails or deceptive websites, and learn how to identify and avoid falling
+                                victim to such attacks.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cryptographic Algorithms</h5>
+                            <h6 class="card-subtitle mb-2">#Tip3</h6>
+                            <p class="card-text">Stay updated with the latest advancements in cryptographic
+                                algorithms and security standards to ensure your password security practices align with
+                                the industry best practices.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Zero-Width Characters Steganography</h5>
+                            <h6 class="card-subtitle mb-2">#Tip1</h6>
+                            <p class="card-text">Always use cryptographic algorithms to encrypt secret messages which
+                                will be hidden in public messages.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip2</h6>
+                            <p class="card-text">Be aware of social engineering techniques like phishing. Hackers may
+                                try to manipulate you into revealing your password through phone call, phishing links.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip5</h6>
+                            <p class="card-text">Use password generation tools, password managers to create and store
+                                complex passwords securely to use unique passwords for multiple accounts.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip8</h6>
+                            <p class="card-text">Don't use same passwords across multiple accounts or applications. Each
+                                account should
+                                have a unique password to prevent unauthorized access in case one account gets
+                                compromised.</p>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Strong Passwords</h5>
+                            <h6 class="card-subtitle mb-2">#Tip11</h6>
+                            <p class="card-text">Consider using a password manager tool that securely stores and
+                                organizes your passwords.</p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-            <div class="col">
-
-            </div>
-
         </div>
     </div>
 
