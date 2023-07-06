@@ -11,5 +11,5 @@ Tech Stack: HTML, CSS, JavaScript, Bootstrap and Flask (Python).
 Features available in the website:
 1. Text Cryptographic Algorithms
 2. Zero-Width Characters Based Steganography
-3. Generate Strong Passwords
+3. Generate Strong Random Passwords
 4. Test Strength Of Your Passwords
