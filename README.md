@@ -5,7 +5,7 @@ It is a website which has features which help you to:
 2. Hide (or) reveal secret messages in ordinary looking public messages.
 3. Generate strong passwords from a length of 12 to 1200.
 4. Test the strength of user's password.
-5. Tips about good practices related to strong passwords, securing their accounts and how to easily use my website.
+5. Tips to spread awareness about good practices related to strong passwords, securing their accounts and how to easily use my website.
 
 Tech Stack: HTML, CSS, JavaScript, Bootstrap and Flask (Python).
 
